@@ -1,0 +1,12 @@
+#lang racket
+
+;; Fibonacci sequence >:(
+
+(define fibN
+  (lambda (N)
+    (cond ( (= N 1) 0 )
+          ( (= N 2) 0 1 )
+          ;; ( (= N 3) 0 1 1)
+          ;; ( (= N 4) 0 1 1 2)
+          ( #t      (fibN (N - 1))
+          )))

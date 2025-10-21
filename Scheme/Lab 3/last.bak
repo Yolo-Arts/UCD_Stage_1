@@ -1,0 +1,8 @@
+#lang racket
+
+(define last
+  (lambda (L)
+    (cond ( (null? L) 0)
+          ( #t (cdr last(L)))
+          )))
+          

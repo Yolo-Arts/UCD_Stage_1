@@ -1,0 +1,8 @@
+#lang racket
+
+(define removeFirst
+  (lambda (A L)
+    (cond ( (null? L) '())
+          ( (equal? (A (car L)) (removeFirst(cdr L )      )
+          ( #t (cons (car L) (removeFirst(cdr L ) ) ))
+          )))

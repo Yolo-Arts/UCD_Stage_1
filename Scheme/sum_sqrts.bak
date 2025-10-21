@@ -1,0 +1,6 @@
+#lang racket
+
+(define sum_sqrt
+  (lambda (x)
+    (cond ( (= x '() ) 0))
+    ))

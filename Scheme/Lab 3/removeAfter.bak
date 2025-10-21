@@ -1,0 +1,9 @@
+#lang racket
+
+
+(define removeAfter
+  (lambda (E L)
+    (cond ( (= (length L) 1) (car L) )
+          ( (= E (car L) ) L)
+          ( #t (removeAfter E (cdr L) )
+          )))

@@ -1,0 +1,15 @@
+#lang racket
+
+;; write a function G with the following definition:
+;; G(0) = 0
+;; G(1) = 0
+;; G(2) = 1
+;; G(n) = G(n - 1) + G(n - 2) - G(n - 3)
+
+(define G
+  (lambda n
+    (cond ( (equal? n 0) 0)
+          ( (equal? n 1) 0)
+          ( (equal? n 2) 1)
+          ( (> n 2) (- (+ (G (- n 1)) (G (- n 2)) ) (G (- n 3)) ) )
+          )))

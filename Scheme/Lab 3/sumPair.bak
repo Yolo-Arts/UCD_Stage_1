@@ -1,0 +1,9 @@
+#lang racket
+
+;; given a list of numbers (call it L), write a function sumPairs that return a number equal to
+;; the product of every side-by-side pair of numbers in L
+;; so L = (5 1 2 4) -> 5*1 + 1*2 + 2*4 = 15
+
+(define sumPair
+  (lambda (L)
+    (cond (length

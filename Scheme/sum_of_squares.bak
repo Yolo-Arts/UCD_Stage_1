@@ -1,0 +1,14 @@
+#lang racket
+
+(define square
+  (lambda (x)
+    (* x 2)
+    )
+  )
+
+(define sum_of_squares
+  (lambda (n)
+    (cond (n = 1) 1)
+    (     (n > 1) (+ (square n) (square n - 1)))
+    ))
+    

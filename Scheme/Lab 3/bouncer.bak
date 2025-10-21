@@ -1,0 +1,16 @@
+#lang racket
+
+;; Read a list of people's ages and and want to count how many are over 18
+
+(define over18
+  (lambda (x)
+    (cond (> x 18) 1)
+    ))
+
+(define bouncer
+  (lambda (L)
+    (cond ( (= (length L) 0) 0 )
+          ( #t (+ (over18 (car L)) (bouncer (cdr L) ) )
+          )))
+
+          

@@ -1,0 +1,9 @@
+#lang racket
+
+
+(define removeN
+  (lambda (N L )
+    (cond ( (= (length L) 1) (car L) )
+          ( (= N (car L) ))
+          ( #t  (removeN N (cdr L)) ) 
+          )))
