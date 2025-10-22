@@ -1,0 +1,13 @@
+#lang racket
+
+;; given a list of numbers, give back the maximum in that list
+
+(define nums '(6 2 7 8 9 1 3 4 1 9 5 4) )
+
+(define max
+  (lambda (L)
+    (cond ( (null? L) '() )
+          ( (equal? (length L) 1) L)
+          ( (> (car L) (car (cdr L)) )  (cons (car L) (max (cdr L) ) )           ) 
+          ( #t (max(cdr L)) )
+          )))
