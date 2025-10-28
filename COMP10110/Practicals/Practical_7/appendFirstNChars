@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX_LEN 100
+
+int main(void)
+{
+	char str[MAX_LEN];
+	char str2[MAX_LEN];
+	int i;
+
+	/* read a string */
+	printf("Enter a string:\n");
+	scanf("%s", str);
+
+	/* read the integer i */
+	printf("Enter a value for i:\n");
+	scanf("%d", &i);
+
+
+	/** Write your code here **/
+	if (i < 0 || strlen(str) < i) {
+	    printf("%d is not a valid index", i);
+	} else {
+	    printf("The modified string is:");
+	    strncat(str2, str, i);
+	   // for(int j = 0; j < i; j++) {
+	   //     printf("%d", str[j]);
+	   // }
+	   printf(" %s", str2);
+	}
+	
+	
+	return 0;
+}

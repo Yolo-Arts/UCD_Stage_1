@@ -1,0 +1,8 @@
+#lang racket
+
+(define insertBy
+  (lambda (C E S)
+    (cond ( (null? S) (list (car E)) )
+          (equal? (C (car S) #t)  (cons E (cdr S) )                )
+          ( #t (insertBy C E (cdr S) ) )
+          )))

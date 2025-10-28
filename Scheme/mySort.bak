@@ -1,0 +1,8 @@
+#lang racket
+
+(define mySort
+  (lambda (C L)
+    (cond ( (null? L) '())
+          ( (C (car L) (car (mySort C (cdr L))) (cons (car L) (mySort (cdr L) )) ))
+          ( #t (mySort C (cdr L)) )
+          )))
