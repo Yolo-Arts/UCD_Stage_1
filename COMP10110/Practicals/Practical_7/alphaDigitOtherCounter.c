@@ -5,17 +5,13 @@
 int main(void)
 {
 	char str[MAX_LEN];
-	// char str2[MAX_LEN];
-	int i;
 
 	/* read a string */
 	printf("Enter a string:\n");
 	scanf("%s", str);
 
-	/* read the integer i */
-	printf("Enter a value for i:\n");
-	scanf("%d", &i);
 	
+	/** Write your code here **/
 	int letters = 0;
 	int digits = 0;
 	int other = 0;
@@ -29,21 +25,10 @@ int main(void)
 	        other++;
 	    }
 	}
-
-
-	/** Write your code here **/
-	if (i < 0 || strlen(str) < i) {
-	    printf("%d is not a valid index", i);
-	} else if (other > 0) {
-	    printf("%d is not a valid index", i);
-	} else {
-	    printf("The modified string is: ");
-	   // strncat(str2, str, i);
-	    for(int j = 0; j < i; j++) {
-	        printf("%c", str[j]);
-	    }
-	   //printf("%s", str2);
-	}
+	
+	printf("Letters: %d\n", letters);
+	printf("Digits: %d\n", digits);
+	printf("Other: %d\n", other);
 	
 	
 	return 0;

@@ -24,7 +24,7 @@ int main(void)
 	len = strlen(str1);
 	int remainingLetters = MAX_LEN - len - 1; 
 	strncat(str1, str2, remainingLetters);
-// 	printf("%s\n", str1);
+// 	printf("s%\n", str1);
 // 	printf("%d\n", remainingLetters);
 	
 	
