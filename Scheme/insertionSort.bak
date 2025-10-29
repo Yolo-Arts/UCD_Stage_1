@@ -1,0 +1,19 @@
+#lang racket
+
+
+(define sort
+  (lambda (L)
+    (cond ( (null? L)       L )
+          ( (null? (cdr L)) L )
+          ( #t             (insert < (car L) (sort < (cdr L) ) ) )
+          )))
+
+
+
+
+
+
+
+
+
+
