@@ -1,0 +1,7 @@
+#lang racket
+
+(define talk
+  (lambda()
+    (define gotSomething (read))
+    (if (equal? gotSomething 'stop) '() (talk)
+        )))

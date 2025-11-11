@@ -1,0 +1,8 @@
+#lang racket
+
+;; given a list of things L = ('a b c)
+;; return a list of all permuations of those things
+;; ((a b c) (a c b) (b a c) (b c a) (c a b) (c b a)
+
+;; What's the simplest list L where I can give (perm L) immediately?
+;; what if L is empty?
