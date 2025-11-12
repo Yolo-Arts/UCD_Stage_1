@@ -1,0 +1,14 @@
+#lang racket
+
+; If I have 3 disks on TOWER A, and I want to move them to tower C:
+; Can I do this recursively? What if I can move a smaller tower.
+; moving a tower size 3 from A to C:
+;           First move the top tower of size 2, From A to B.
+;           and then move the bottom disk (the biggest one to C)
+;           then move that smaller tower from B to C
+
+; Lets think about what we're doing here?
+; We want to have the same function to solve for n disks,
+; and also use it to solve (Hanoi (n - 1)) for the smaller towers.
+; So we need a function that can move n things from one tower to another
+; (and we'll need to tell it which towers to move from and move to)
