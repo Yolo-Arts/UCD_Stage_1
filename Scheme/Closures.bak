@@ -1,0 +1,10 @@
+#lang racket
+
+(define aClosure
+  (lambda (myName)
+
+    (lambda (N)
+      (list 'hi myName N 'squared 'is '(*N N) )
+      )
+    )
+  )
