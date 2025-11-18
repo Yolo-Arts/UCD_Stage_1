@@ -1,0 +1,9 @@
+#lang racket
+
+(define power
+  (lambda L
+    (cond ( (equal? (length L) 1) 1)
+          ( #t (expt (car L) (power cdr L)))
+          )))
+               
+(define nums '( 4 3 2) )
