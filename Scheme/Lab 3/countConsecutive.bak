@@ -1,0 +1,12 @@
+#lang racket
+
+(define countConsecutive
+  (lambda (L)
+    (cond ( (null? L)                   0                                  )
+          ( (equal? (car L) (cdr L))     1                                )
+          ( #t                    (+ (countConsecutive (car L)) (countConsecutive (cdr L))          ) )
+          )))
+
+(define testCase '(a a))
+
+(countConsecutive testCase)

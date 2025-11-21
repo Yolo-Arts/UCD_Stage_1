@@ -1,0 +1,25 @@
+#lang racket
+
+(define chainTest
+  (lambda (fn fn2 N)
+     (fn (fn2 N))
+    ))
+
+(define chain
+  (lambda L
+    (cond ( (null? (car L))                            0                           )
+          ( (equal? (length L) 2)            ((eval(car L)) (lastElement L))                )
+          ( #t  (chain cdr L))
+    )))
+
+(define lastElement
+  (lambda (L)
+    (cond ( (equal? (length L) 1) (car L) )
+          ( #t (lastElement (cdr L)) )
+          )))
+
+(define cT
+  (lambda L
+    (lastElement L)
+    ))
+(cT sqrt sqrt 625)
