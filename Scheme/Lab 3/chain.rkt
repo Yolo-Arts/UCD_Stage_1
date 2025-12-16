@@ -31,4 +31,4 @@
     (cond ( (equal? (length L) 1) (lastElement L)                           )
           (#t                  ((car L) (apply chain (cdr L))))
       )))
-         
+ 
