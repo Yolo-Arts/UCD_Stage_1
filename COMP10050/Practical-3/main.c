@@ -12,6 +12,7 @@
  *
  * Output: The number of songs provided as input
  */
+
 int insertSongs(char songs [MAX_SONGS][MAX_LENGHT] ) {
     int i, length;
     // Insert the songs
