@@ -17,7 +17,7 @@ int main(void) {
     printf("\n");
 
 
-    rotateArray(a, 4, 3);
+    rotateArray(a, 4, 6);
 
     for (int i = 0; i < 4; i++) {
         printf("%d, ", a[i]);
@@ -42,12 +42,16 @@ int main(void) {
 
 // more efficient solution using modulo :)
 void rotateArray(int a[], int size, int shift) {
-    int temp = a[0];
+    int temp[size];
+    shift %= size;
 
-    for (int i = 1; i < size; i ++) {
-        a[i - (shift % size)] = a[i];
+    for (int i = 0; i < size; i ++) {
+        int newPos = (i + size - shift) % size;
+        temp[newPos] = a[i];
     }
 
-    a[size - (shift % size)] = temp;
+    for (int i = 0; i < size; i++) {
+        a[i] = temp[i];
+    }
 
 }
