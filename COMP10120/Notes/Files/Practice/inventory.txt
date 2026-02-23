@@ -1,0 +1,6 @@
+Screws 500 0.05
+Wrenches 3 15.50
+Hammers 12 12.00
+Drills 2 89.99
+Nails 2000 0.02
+Saws 4 25.00

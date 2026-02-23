@@ -1,0 +1,4 @@
+Alice                               88.50
+Bob                                 67.50
+Charlie                             91.50
+Diana                               66.00
