@@ -22,6 +22,7 @@ struct employee {
 
 int main(void) {
     struct employee alice = {"alice", "murphy", 19};
+    struct employee bob = {"bob", "murphy", 19};
     printf("Full name is %s %s\n", alice.firstName, alice.lastName);
     printf("Age: %d\n", alice.age);
 
