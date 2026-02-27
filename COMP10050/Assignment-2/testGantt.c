@@ -9,9 +9,12 @@
 
 
 #include <stdio.h>
+#include "testGantt.h"
 
 void showGantTemplate();
-enum month {january, february, march, april, may, june, july,  august, september, october, november, december};
+
+// moving the enum into testGantt.h so that it can be used across programs.
+// enum month {january, february, march, april, may, june, july,  august, september, october, november, december};
 
 // int main(void){
 
