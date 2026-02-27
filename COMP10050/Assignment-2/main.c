@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "input.h"
+#include "testGantt.h"
 
 
 int main(void) {
