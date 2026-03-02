@@ -104,3 +104,27 @@ ID: 1050, Name: Amber, GPA: 3.08
 //     read_from_binary()
 //     return 0;
 // }
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct stats {
+    int id;
+    char name[50];
+    float gpa;
+};
+int main(){
+    FILE *cfPtr;
+
+    if((cfPtr = fopen("students.dat", "rb")) == NULL){
+        printf("File could not be opened");
+    } else {
+        struct stats data;
+        while(fread(&data, sizeof(struct stats), 1, cfPtr) == 1){
+
+              printf("ID: %d, Name: %s, GPA: %.2f\n", data.id, data.name, data.gpa);
+
+        }
+        fclose(cfPtr);
+    }
+}
