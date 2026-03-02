@@ -107,14 +107,13 @@ void askInput() {
             // printf("Largest month: %d\n", largestMonth);
             // printf("Smallest month: %d\n", smallestMonth);
 
-            // FIX ENUM ISSUE BEING +1, INITIALISE VALUES FOR ENUMS: january = 1, february = 2.
-
+            // this displays the months
             printf("\t\t\t|");
 
             for(int i = smallestMonth ; i <= largestMonth; i++){
 
                 switch(i){
-                case(-1) :
+                case(0) :
                         printf("\t\t\t|");
                         break;
                 case(january):
@@ -153,9 +152,9 @@ void askInput() {
                 case(december):
                         printf(" December   |");
                         break;
-                case(december + 1):
-                        printf(" Dependencies   \n");
-                        break;
+                // case(december + 1):
+                //         printf(" Dependencies   \n");
+                //         break;
 
                 default:
                     break;
@@ -164,11 +163,26 @@ void askInput() {
 
             }
 
-            printf(" Dependencies   \n");
+            printf(" Dependencies   |\n");
+            printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
+            // prints out the customised Gantt:
 
+            for (int i = 0; i < taskAmount; i++) {
+                printf("%-24s|", tasksArray[i].taskName);
+                for (int j = smallestMonth; j <= largestMonth; j++) {
 
-            // displaying user generated Gantt Chart:
+                    if ((tasksArray[i].startMonth <= j) && (tasksArray[i].endMonth >= j)) {
+                        printf("    xxx     |");
+                    } else {
+                        printf("            |");
+                    }
+                }
+                printf("                |\n");
+                printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
+            }
+
+            // displaying user generated Gantt Chart (deprecated):
 
             // printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
             // printf("Internship Applications\t|            |    xxx     |    xxx     |    xxx     |            |            |            |            |            |            |            |            | 1   \n");
@@ -182,14 +196,16 @@ void askInput() {
 
             // printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
+
+            // breaks out of the while loop
+            programActive = false;
+
         }
     }
 
-
-
-
-
-
+    printf("If you wish to edit the Gantt please type 'edit'.\n");
+    printf("If you wish to run a test, type 'test'\n");
+    printf("If you wish to exit the program, type 'quit' and then press enter to execute your option");
 }
 
 void askEditInput() {
