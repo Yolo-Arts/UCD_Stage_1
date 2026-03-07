@@ -1,1 +1,9 @@
 *.exe
+*.o
+*.exe
+*.obj
+.settings/
+.cproject
+.project
+Debug/
+*.launch
