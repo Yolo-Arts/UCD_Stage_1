@@ -19,8 +19,9 @@
 #include "input.h"
 #include "testGantt.h"
 #include "edit.h"
-#include "test.h"
+#include "recursive.h"
 #include "display.h"
+#include "clear.h"
 
 
 
@@ -49,18 +50,16 @@ void populateTasks(Task *t) {
 }
 
 void askInput() {
-    // bool createGanttFromScratch = false;
+
 
     // flag to ensure program runs until stopped.
     bool programActive = true;
 
     char yesOrNo;
 
-    // int taskAmount, startMonth, endMonth, dependencyAmount = 0;
+
     int taskAmount;
-	//dependencyAmount = 0;
-    //char taskName[MAX_NAME_LENGTH];
-    //int dependentTask[MAX_DEPENDENCIES];
+
 
     // initialise an array of type Task
     Task tasksArray[MAX_TASKS];
@@ -96,30 +95,7 @@ void askInput() {
                 populateTasks(&tasksArray[i]);
             }
 
-            //int smallestMonth = tasksArray[0].startMonth;
-            //int largestMonth = tasksArray[0].endMonth;
-
-            // checking if output looks good
-
-           /* for (int i = 0; i < taskAmount; i++) {
-                // printf("Name: %s, \tStart Month: %4d, \tEnd Month: %4d\n",
-                //     tasksArray[i].taskName,
-                //     tasksArray[i].startMonth,
-                //     tasksArray[i].endMonth);
-
-                if (tasksArray[i].startMonth < smallestMonth) {
-                    smallestMonth = tasksArray[i].startMonth;
-                }
-
-                if (tasksArray[i].endMonth > largestMonth) {
-                    largestMonth = tasksArray[i].endMonth;
-                }
-            }*/
-
-            // printf("Largest month: %d\n", largestMonth);
-            // printf("Smallest month: %d\n", smallestMonth);
-
-
+            clearDisplay(); //clear screen before print gantt
             displayGant(tasksArray, taskAmount);
 
             askEditInput(tasksArray, taskAmount);
@@ -139,28 +115,62 @@ void askEditInput(Task tasksArray[], int taskAmount) {
 
     char editOrTestOrQuit[MAX_NAME_LENGTH];
 
-    printf("YOOOOO");
-    fflush(stdout);
+
     do {
 
-        printf("\nIf you wish to edit the Gantt please type 'edit'.\n");
+        printf("\n\nIf you wish to edit the Gantt please type 'edit'.\n");
         fflush(stdout);
         printf("If you wish to run a test, type 'test'\n");
         fflush(stdout);
         printf("If you wish to exit the program, type 'quit'\n");
         fflush(stdout);
 
-        scanf(" %49s", editOrTestOrQuit);
+        scanf("%49s", editOrTestOrQuit);
 
         if (strcmp(editOrTestOrQuit, "edit") == 0) {
             editGant(tasksArray, taskAmount);
+            clearDisplay();   //clears screen before print new gantt
             displayGant(tasksArray, taskAmount);
         }
         else if (strcmp(editOrTestOrQuit, "test") == 0) {
-            testDependencies();
+
+        	int visitedTasks[MAX_TASKS] = {0};
+        	int taskId = -1;
+        	char testTaskName[MAX_NAME_LENGTH];
+
+        	printf("\nPlease enter the task name to test\n");
+        	fflush(stdout);
+        	scanf("%s", testTaskName);
+
+        	for (int i = 0; i < taskAmount; i++) {
+
+        		if(strcmp(tasksArray[i].taskName, testTaskName) == 0){
+        			taskId = i; //gives the index of the task youre testing
+        			break; //stop looking when found
+        		}
+        	}
+
+        	if (taskId == -1) {
+        	    printf("Task not found.\n"); // just in case the task they enter is an invalid i.e not found so id never changed from -1
+        	} else {
+        	    printDependentTasks(tasksArray, taskId, visitedTasks);
+        	}
+
         }
 
     } while (strcmp(editOrTestOrQuit, "quit") != 0);
+
+    printf("\n");
+    printf("ascii art:\n");
+    printf(" /\\__/\\\n( . 3 .)\n/ u  u\\\n"); //need to use \\ to print a single back slash cause its a special chracter
+
+    // the ASCII art of a masterfully created stickman.
+    printf("\nASCII Art!\n");
+    printf("  O  \n");
+    printf(" /|V  \n");
+    printf(" /\\  \n");
+    printf("\nleg is a lil off center...\n");
+
 
     return; //at this point, user entered quit so returns back to main where there is nothing else to do
 

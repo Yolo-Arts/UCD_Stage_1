@@ -11,7 +11,7 @@
 #include "input.h"
 #include "testGantt.h"
 #include "edit.h"
-#include "test.h"
+#include "recursive.h"
 #include "display.h"
 
 void editGant(Task tasksArray[], int taskAmount) {
@@ -27,7 +27,7 @@ void editGant(Task tasksArray[], int taskAmount) {
 		if(strcmp(tasksArray[i].taskName, taskToEdit) == 0){
 			memset(&tasksArray[i], 0, sizeof(tasksArray[i])); //resets the values of the Task
 
-		    printf("Please enter the new task name or write its old one:\n");
+		    printf("\nPlease enter the new task name or write its old one:\n");
 		    fflush(stdout);
 		    scanf("%49s", tasksArray[i].taskName); //ensures will only read max 49 characters to allow for null character and avoid overflow
 

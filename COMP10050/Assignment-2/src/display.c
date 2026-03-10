@@ -12,7 +12,7 @@
 #include "input.h"
 #include "testGantt.h"
 #include "edit.h"
-#include "test.h"
+#include "recursive.h"
 #include "display.h"
 
 
@@ -61,9 +61,7 @@ void displayGant(Task tasksArray[], int taskAmount){
 	                case(december):
 	                        printf(" December   |");
 	                        break;
-	                // case(december + 1):
-	                //         printf(" Dependencies   \n");
-	                //         break;
+
 
 	                default:
 	                    break;
@@ -97,19 +95,6 @@ void displayGant(Task tasksArray[], int taskAmount){
 	                printf("\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 	            }
 
-	            // displaying user generated Gantt Chart (deprecated):
-
-	            // printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
-	            // printf("Internship Applications\t|            |    xxx     |    xxx     |    xxx     |            |            |            |            |            |            |            |            | 1   \n");
-	            // for (int i = 0; i < taskAmount; i++) {
-	            //     printf("%-25s| \tStart Month: %4d, \tEnd Month: %4d\n",
-	            //         tasksArray[i].taskName,
-	            //         tasksArray[i].startMonth,
-	            //         tasksArray[i].endMonth);
-	            // }
-
-
-	            // printf("---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------\n");
 
 
 
