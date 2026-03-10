@@ -81,9 +81,11 @@ void askInput() {
         }
         else if (yesOrNo == 'Y' || yesOrNo == 'y')
         {
+            taskAmount = loadTestExample(tasksArray);
+            displayGant(tasksArray, taskAmount);
             printf("\n");
-            showGantTemplate();
-            printf("\n");
+            askEditInput(tasksArray, taskAmount);
+            programActive = false;
         }
         else if (yesOrNo == 'N' || yesOrNo == 'n')
         {
@@ -118,7 +120,7 @@ void askEditInput(Task tasksArray[], int taskAmount) {
 
     do {
 
-        printf("\n\nIf you wish to edit the Gantt please type 'edit'.\n");
+        printf("If you wish to edit the Gantt please type 'edit'.\n");
         fflush(stdout);
         printf("If you wish to run a test, type 'test'\n");
         fflush(stdout);
