@@ -22,7 +22,7 @@ void printDependentTasks(Task taskList[], int taskId, int visitedTasks[]) {
         if (visitedTasks[dependentTaskId] == 0) {
             printDependentTasks(taskList, dependentTaskId, visitedTasks);
         } else {
-            printf("%d ( !!!!!!!! warning potential circular dependency !!!!!!!! )\n", dependentTaskId + 1);
+            printf("%d ( !!!!!!!! warning potential circular dependency !!!!!!!! )\n\n", dependentTaskId + 1);
             return;
         }
     }

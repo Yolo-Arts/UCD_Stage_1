@@ -18,12 +18,17 @@ int main() {
     numOfSongs = insertSongs(songs, artists);
     printf("\nThe number of songs is %d\n", numOfSongs);
 
-    sortSongs(artists, songs, numOfSongs);
 
-    printf("\nSorted list of songs:\n");
-    printSorted(artists, songs, numOfSongs);
+    if (numOfSongs <= 5) {
+        printf("Enter 6 or more songs! \n");
+    } else {
+        sortSongs(artists, songs, numOfSongs);
 
-    shufflePlaylist(artists, songs, numOfSongs);
+        printf("\nSorted list of songs:\n");
+        printSorted(artists, songs, numOfSongs);
+
+        shufflePlaylist(artists, songs, numOfSongs);
+    }
 
     // the ASCII art of a masterfully created stickman.
     printf("\nASCII Art!\n");
