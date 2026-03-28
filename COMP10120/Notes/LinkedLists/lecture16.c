@@ -75,26 +75,28 @@ void insert(ListNodePtr *sPtr, char value) {
 
     if (newPtr == NULL) {
         printf("%c not inserted. No memory available.\n");
-    } else {
-        newPtr->data = value;
-        newPtr->nextPtr = NULL;
-
-        ListNodePtr previousPtr = NULL;
-        ListNodePtr currentPtr = *sPtr;
-
-        while (currentPtr != NULL && value > currentPtr->data) {
-            previousPtr = currentPtr;
-            currentPtr = currentPtr->nextPtr;
-        }
-
-        if (previousPtr == NULL) {
-            newPtr->nextPtr = *sPtr;
-            *sPtr = newPtr;
-        } else {
-            previousPtr->nextPtr = newPtr;
-            newPtr->nextPtr = currentPtr;
-        }
+        return;
     }
+
+    newPtr->data = value;
+    newPtr->nextPtr = NULL;
+
+    ListNodePtr previousPtr = NULL;
+    ListNodePtr currentPtr = *sPtr;
+
+    while (currentPtr != NULL && value > currentPtr->data) {
+        previousPtr = currentPtr;
+        currentPtr = currentPtr->nextPtr;
+    }
+
+    if (previousPtr == NULL) {
+        newPtr->nextPtr = *sPtr;
+        *sPtr = newPtr;
+    } else {
+        previousPtr->nextPtr = newPtr;
+        newPtr->nextPtr = currentPtr;
+    }
+
 }
 
 char delete(ListNodePtr *sPtr, char value) {
@@ -119,7 +121,7 @@ char delete(ListNodePtr *sPtr, char value) {
             return value;
         }
     }
-    
+
     return '\0';
 }
 

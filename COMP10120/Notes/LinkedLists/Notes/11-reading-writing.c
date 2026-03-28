@@ -179,7 +179,7 @@ int has_loops(Node* root) {
     Node* slow = root;
     Node* fast = root;
 
-    while(slow != NULL && fast != NULL & fast->next != NULL) {
+    while(slow != NULL && fast != NULL && fast->next != NULL) {
         slow = slow->next;
         fast = fast->next->next;
 
@@ -205,7 +205,7 @@ int count_recursive(Node* node) {
         return 0;
     }
 
-    return 1 + count(node->next);
+    return 1 + count_recursive(node->next);
 }
 
 void serialize(Node* root) {
