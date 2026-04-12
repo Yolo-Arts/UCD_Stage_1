@@ -188,7 +188,7 @@ int has_loops(Node* root) {
 
 }
 
-// iterative counter
+// iterative counter for counting linked list length
 int count(Node* root) {
     int c = 0;
     for(Node* curr = root; curr != NULL; curr = curr->next) {

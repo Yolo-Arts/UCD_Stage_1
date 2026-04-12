@@ -16,9 +16,9 @@ int main(void) {
     const char *filename = "accounts.dat";
     // initializeFile(filename);
 
-    writeToRandomFile(filename);
+    // writeToRandomFile(filename);
 
-    readSequentially(filename);
+    readSequentially("accounts.dat");
 
     return 0;
 }
