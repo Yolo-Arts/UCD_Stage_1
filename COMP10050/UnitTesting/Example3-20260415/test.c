@@ -13,30 +13,30 @@
 #include <CUnit/Basic.h>
 
 
-	void slopeZero_testcase() {
-		CU_ASSERT_EQUAL(getSlope(0,5,90,5),0);
-	}
+void slopeZero_testcase() {
+	CU_ASSERT_EQUAL(getSlope(0,5,90,5),0);
+}
 
 
-	void slopeMiddle_testcase() {
-		CU_ASSERT(getSlope(0,0,90,54) > 0);
-		CU_ASSERT(getSlope(0,90,4,54) < 0);
-	}
+void slopeMiddle_testcase() {
+	CU_ASSERT(getSlope(0,0,90,54) > 0);
+	CU_ASSERT(getSlope(0,90,4,54) < 0);
+}
 
-	void slopeError_testcase() {
-		CU_ASSERT(getSlope(0,90,0,54) == -1);
-	}
+void slopeError_testcase() {
+	CU_ASSERT(getSlope(0,90,0,54) == -1);
+}
 
 
 
-	void distance_testcase() {
-		CU_ASSERT_EQUAL((roundf(getDistance(-2,2, 2,-2)*100)/100.00), 5.66);
-		CU_ASSERT_EQUAL((roundf(getDistance(2,2, -2,-2)*100)/100.00), 5.66);
-		CU_ASSERT_EQUAL(getDistance(-2,0, 2, 0), 4);
-		CU_ASSERT_EQUAL(getDistance(0,2, 0, -2), 4);
+void distance_testcase() {
+	CU_ASSERT_EQUAL((roundf(getDistance(-2,2, 2,-2)*100)/100.00), 5.66);
+	CU_ASSERT_EQUAL((roundf(getDistance(2,2, -2,-2)*100)/100.00), 5.66);
+	CU_ASSERT_EQUAL(getDistance(-2,0, 2, 0), 4);
+	CU_ASSERT_EQUAL(getDistance(0,2, 0, -2), 4);
 
-		CU_ASSERT_EQUAL(getDistance(2,-2, 2, -2),0);
-	}
+	CU_ASSERT_EQUAL(getDistance(2,-2, 2, -2),0);
+}
 
 
 
