@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<booklist>
+   <book id="13585350">
+      <title>The World Treasury of Science Fiction</title>
+      <ISBN>0316349410</ISBN>
+      <year>1989</year>
+      <rating>3</rating>
+      <language>eng</language>
+   </book>
+   <book id="124205572">
+      <title>The War of the Worlds</title>
+      <ISBN>1936594056</ISBN>
+      <year>2013</year>
+      <rating>4</rating>
+      <language>eng</language>
+   </book>
+   <book id="127360065">
+      <title>Under the Dome: A Novel</title>
+      <ISBN>1439149038</ISBN>
+      <year>2013</year>
+      <rating>2</rating>
+      <language>eng</language>
+   </book>
+   <book id="13908800">
+      <title>The Ultimate Hitchhiker's Guide to the Galaxy</title>
+      <ISBN>0345453743</ISBN>
+      <year>2002</year>
+      <rating>5</rating>
+      <language>eng</language>
+   </book>
+   <book id="123734934">
+      <title>The Time Traveler's Wife</title>
+      <ISBN>1476764832</ISBN>
+      <year>2014</year>
+      <rating>5</rating>
+      <language>eng</language>
+   </book>
+   <book id="13603020">
+      <title>Salem's Lot</title>
+      <ISBN>0451098277</ISBN>
+      <year>1976</year>
+      <rating>3</rating>
+      <language>eng</language>
+   </book>
+   <book id="124173974">
+      <title>Republic</title>
+      <ISBN>039395501X</ISBN>
+      <year>1985</year>
+      <rating>3</rating>
+      <language>eng</language>
+   </book>
+   <book id="123102859">
+      <title>The Road</title>
+      <ISBN>0307387895</ISBN>
+      <year>2006</year>
+      <rating>5</rating>
+      <language>eng</language>
+   </book>
+</booklist>
