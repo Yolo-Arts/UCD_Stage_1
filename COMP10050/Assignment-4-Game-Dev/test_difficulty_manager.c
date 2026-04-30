@@ -188,45 +188,61 @@ void test_tanky_enemy_coin_drop_all_levels(void) {
     }
 }
 
+// suite 5 fail tests
+void test_fail_level_zero_is_valid(void) {
+    CU_ASSERT_TRUE(is_level_valid(0));
+}
+
+void test_fail_fast_enemy_health_static(void) {
+    FastEnemy e = calculate_fast_enemy(10);
+    CU_ASSERT_DOUBLE_EQUAL(e.health, 10000000, 0.1);
+}
 
 int main(void) {
     CU_initialize_registry();
 
     // Suite 1: is_level_valid
     CU_pSuite s_valid = CU_add_suite("Suite_isLevelValid", 0, 0);
-    CU_add_test(s_valid, "all levels 1-100 are valid",    test_all_levels_valid);
-    CU_add_test(s_valid, "invalid: level",           test_invalid_level);
+    CU_add_test(s_valid, "all levels 1-100 are valid", test_all_levels_valid);
+    CU_add_test(s_valid, "invalid: level", test_invalid_level);
 
     // Suite 2: FastEnemy
     CU_pSuite s_fast = CU_add_suite("Suite_FastEnemy", 0, 0);
-    CU_add_test(s_fast, "invalid level returns zero struct",        test_fast_enemy_invalid_level_returns_zero);
-    CU_add_test(s_fast, "health formula correct (levels 1-100)",    test_fast_enemy_health_all_levels);
-    CU_add_test(s_fast, "speed formula correct (levels 1-100)",     test_fast_enemy_speed_all_levels);
-    CU_add_test(s_fast, "speed never exceeds cap (levels 1-100)",   test_fast_enemy_speed_never_exceeds_cap);
-    CU_add_test(s_fast, "attack power correct (levels 1-100)",      test_fast_enemy_attack_all_levels);
-    CU_add_test(s_fast, "knockback correct (levels 1-100)",         test_fast_enemy_knockback_all_levels);
-    CU_add_test(s_fast, "coin drop correct (levels 1-100)",         test_fast_enemy_coin_drop_all_levels);
+    CU_add_test(s_fast, "invalid level returns zero struct", test_fast_enemy_invalid_level_returns_zero);
+    CU_add_test(s_fast, "health formula correct (levels 1-100)", test_fast_enemy_health_all_levels);
+    CU_add_test(s_fast, "speed formula correct (levels 1-100)", test_fast_enemy_speed_all_levels);
+    CU_add_test(s_fast, "speed never exceeds cap (levels 1-100)", test_fast_enemy_speed_never_exceeds_cap);
+    CU_add_test(s_fast, "attack power correct (levels 1-100)", test_fast_enemy_attack_all_levels);
+    CU_add_test(s_fast, "knockback correct (levels 1-100)", test_fast_enemy_knockback_all_levels);
+    CU_add_test(s_fast, "coin drop correct (levels 1-100)", test_fast_enemy_coin_drop_all_levels);
 
     // Suite 3: NormalEnemy
     CU_pSuite s_normal = CU_add_suite("Suite_NormalEnemy", 0, 0);
-    CU_add_test(s_normal, "invalid level returns zero struct",        test_normal_enemy_invalid_level_returns_zero);
-    CU_add_test(s_normal, "health formula correct (levels 1-100)",    test_normal_enemy_health_all_levels);
-    CU_add_test(s_normal, "speed formula correct (levels 1-100)",     test_normal_enemy_speed_all_levels);
-    CU_add_test(s_normal, "speed never exceeds cap (levels 1-100)",   test_normal_enemy_speed_never_exceeds_cap);
-    CU_add_test(s_normal, "attack power correct (levels 1-100)",      test_normal_enemy_attack_all_levels);
-    CU_add_test(s_normal, "knockback correct (levels 1-100)",         test_normal_enemy_knockback_all_levels);
-    CU_add_test(s_normal, "coin drop correct (levels 1-100)",         test_normal_enemy_coin_drop_all_levels);
+    CU_add_test(s_normal, "invalid level returns zero struct", test_normal_enemy_invalid_level_returns_zero);
+    CU_add_test(s_normal, "health formula correct (levels 1-100)", test_normal_enemy_health_all_levels);
+    CU_add_test(s_normal, "speed formula correct (levels 1-100)", test_normal_enemy_speed_all_levels);
+    CU_add_test(s_normal, "speed never exceeds cap (levels 1-100)", test_normal_enemy_speed_never_exceeds_cap);
+    CU_add_test(s_normal, "attack power correct (levels 1-100)", test_normal_enemy_attack_all_levels);
+    CU_add_test(s_normal, "knockback correct (levels 1-100)", test_normal_enemy_knockback_all_levels);
+    CU_add_test(s_normal, "coin drop correct (levels 1-100)", test_normal_enemy_coin_drop_all_levels);
 
     // Suite 4: TankyEnemy
     CU_pSuite s_tanky = CU_add_suite("Suite_TankyEnemy", 0, 0);
-    CU_add_test(s_tanky, "invalid level returns zero struct",        test_tanky_enemy_invalid_level_returns_zero);
-    CU_add_test(s_tanky, "health formula correct (levels 1-100)",    test_tanky_enemy_health_all_levels);
+    CU_add_test(s_tanky, "invalid level returns zero struct", test_tanky_enemy_invalid_level_returns_zero);
+    CU_add_test(s_tanky, "health formula correct (levels 1-100)", test_tanky_enemy_health_all_levels);
 
-    CU_add_test(s_tanky, "speed formula correct (levels 1-100)",     test_tanky_enemy_speed_all_levels);
-    CU_add_test(s_tanky, "speed never exceeds cap (levels 1-100)",   test_tanky_enemy_speed_never_exceeds_cap);
-    CU_add_test(s_tanky, "attack power correct (levels 1-100)",      test_tanky_enemy_attack_all_levels);
-    CU_add_test(s_tanky, "knockback correct (levels 1-100)",         test_tanky_enemy_knockback_all_levels);
-    CU_add_test(s_tanky, "coin drop correct (levels 1-100)",         test_tanky_enemy_coin_drop_all_levels);
+    CU_add_test(s_tanky, "speed formula correct (levels 1-100)", test_tanky_enemy_speed_all_levels);
+    CU_add_test(s_tanky, "speed never exceeds cap (levels 1-100)", test_tanky_enemy_speed_never_exceeds_cap);
+    CU_add_test(s_tanky, "attack power correct (levels 1-100)", test_tanky_enemy_attack_all_levels);
+    CU_add_test(s_tanky, "knockback correct (levels 1-100)", test_tanky_enemy_knockback_all_levels);
+    CU_add_test(s_tanky, "coin drop correct (levels 1-100)", test_tanky_enemy_coin_drop_all_levels);
+
+    // Suite 5: Fail tests
+    CU_pSuite s_fail = CU_add_suite("Suite_Fail", 0, 0);
+    CU_add_test(s_fail, "there cannot be a level 0", test_fail_level_zero_is_valid);
+    CU_add_test(s_fail, "fast enemy health is incorrect", test_fail_fast_enemy_health_static);
+
+
 
     CU_basic_set_mode(CU_BRM_VERBOSE);
     CU_basic_run_tests();
