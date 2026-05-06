@@ -3,33 +3,85 @@
 #define MAX_LENGTH 80
 #define MAX_SONGS 12
 
-void update_recently_played(char recentSongs[5][MAX_LENGTH], char *newSong) {
+void update_recently_played(char recentlyPlayed[][MAX_LENGTH], char *songTitle) {
     for (int k = 4; k > 0; k--) {
-        strcpy(recentSongs[k], recentSongs[k - 1]);
+        strcpy(recentlyPlayed[k], recentlyPlayed[k - 1]);
     }
-    strcpy(recentSongs[0], newSong);
+    strcpy(recentlyPlayed[0], songTitle);
 }
 
-int is_recently_played(char recentSongs[5][MAX_LENGTH], char *songTitle) {
+int is_recently_played(char recentlyPlayed[][MAX_LENGTH], char *songTitle) {
     for (int i = 0; i < 5; i++) {
-        if (strcmp(recentSongs[i], songTitle) == 0) {
+        if (strcmp(recentlyPlayed[i], songTitle) == 0) {
             return 1;
         }
     }
+
     return 0;
 }
 
-void parallelSwap(char artists[][MAX_LENGTH], char songs[][MAX_LENGTH], int i, int j) {
+void parallelSwap(char artistList[][MAX_LENGTH], char songList[][MAX_LENGTH], int i, int j) {
     char tempArtist[MAX_LENGTH];
     char tempSong[MAX_LENGTH];
 
-    strcpy(tempArtist, artists[i]);
-    strcpy(tempSong, songs[i]);
+    strcpy(tempArtist, artistList[i]);
+    strcpy(tempSong, songList[i]);
 
-    strcpy(artists[i], artists[j]);
-    strcpy(songs[i], songs[j]);
+    strcpy(artistList[i], artistList[j]);
+    strcpy(songList[i], songList[i]);
 
-    strcpy(artists[j], tempArtist);
-    strcpy(songs[j], tempSong);
+    strcpy(artistList[j], tempArtist);
+    strcpy(songList[j], tempSong);
 }
 
+void shufflePlaylist(char artistList[][MAX_LENGTH], char songList[][MAX_LENGTH], int numOfSongs) {
+    int totalItems = numOfSongs * 2;
+
+    char poolArtists[MAX_SONGS * 2][MAX_LENGTH];
+    char poolSongs[MAX_SONGS * 2][MAX_LENGTH];
+    int used[MAX_SONGS * 2] = {0};
+
+    char resultArtists[MAX_SONGS * 2][MAX_LENGTH];
+    char resultSongs[MAX_SONGS * 2][MAX_LENGTH];
+    char recentlyPlayed[5][MAX_LENGTH];
+
+    for (int i = 0; i < 5; i++) {
+        strcpy(recentlyPlayed[i], "");
+    }
+
+    for (int i = 0; i < numOfSongs; i++) {
+        strcpy(poolArtists[i], artistList[i]);
+        strcpy(poolArtists[i + numOfSongs], artistList[i]);
+        strcpy(poolSongs[i], songList[i]);
+        strcpy(poolSongs[i + numOfSongs], songList[i]);
+    }
+
+    for (int i = totalItems - 1; i > 0; i--) {
+        int j = rand() % (i + 1);
+        parallelSwap(poolArtists, poolSongs, i, j);
+    }
+
+    for (int i = 0; i < totalItems; i++) {
+        int valid_index = 0;
+        int random_index = 0;
+
+        while(valid_index == 0) {
+            random_index = rand() % totalItems;
+
+            if (used[random_index] == 0) {
+                if (is_recently_played(recentlyPlayed ,poolSongs[random_index]) == 0) {
+                    valid_index = 1;
+                    break;
+                }
+            }
+        }
+
+        used[random_index] = 1;
+        strcpy(resultArtists[i], poolArtists[random_index]);
+        strcpy(resultSongs[i], poolSongs[random_index]);
+
+        update_recently_played(recentlyPlayed, poolSongs[random_index]);
+    }
+
+    // helper function to print results arrays
+}
