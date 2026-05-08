@@ -13,6 +13,8 @@ typedef struct List {
     struct List* next;
 } List;
 
+void insert_end(List** root, char* s);
+void insert_end_item(Item** root, char* s);
 
 void load_file(List **startPtr, char file_name[])
 {
